@@ -76,6 +76,7 @@ class PostList extends React.Component {
               <li style={styles.listItem} key={post.id} >
                 <Card style={styles.card}>
                   <Link to={`/posts/${post.id}`} >
+                    <h3 style={styles.postTitle}>{post.username}</h3>
                     <h3 style={styles.postTitle}>{post.title}</h3>
                     <p style={styles.postContent}>{post.content.substring(0, 100)}...</p>
                   </Link>

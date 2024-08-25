@@ -129,6 +129,7 @@ class PostDetail extends React.Component {
     return (
       <div style={styles.container}>
         <div style={styles.subContainer}>
+          <h2 style={styles.postTitle}>{postData?.username}</h2>
           <h2 style={styles.postTitle}>{postData?.title}</h2>
           <p style={styles.postContent}>{postData?.content}</p>
           <p>
