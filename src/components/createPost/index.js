@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import withRouter from '../../utils/withRouter';
 import { createPost } from '../../services/api';
+import Cookies from 'js-cookie';
 
 class CreatePost extends Component {
   state = {
@@ -21,6 +22,7 @@ class CreatePost extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { title, content } = this.state;
+    const username = Cookies.get('username')
 
     if (!title.trim() || !content.trim()) {
       this.setState({ error: 'Title and content are required.' });
@@ -28,7 +30,7 @@ class CreatePost extends Component {
     }
 
     this.setState({ loading: true, error: null });
-    const formData = { title, content }
+    const formData = { title, content,  username}
 
     try {
       const createdPost = await createPost(formData);
