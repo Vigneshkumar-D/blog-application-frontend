@@ -93,8 +93,6 @@ class PostDetail extends React.Component {
         const parsedComments = typeof data.post.comments === 'string'
           ? JSON.parse(data.post.comments)
           : data.post.comments;
-        console.log(data);
-
         this.setState({ postData: data.post, comments: parsedComments || [], loading: false });
       })
       .catch(error => console.error('Error fetching post:', error));
@@ -123,8 +121,6 @@ class PostDetail extends React.Component {
 
   render() {
     const { postData, comments, newComment, loading } = this.state;
-
-    console.log("com", comments);
 
     return (
       <div style={styles.container}>
